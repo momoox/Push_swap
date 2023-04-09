@@ -39,69 +39,75 @@ void	*ft_calloc(int ecount, int esize)
 	return (str);
 }
 
-int	ft_atoi(char **argv)
+int	ft_atoi(char *str)
 {
-	long	i;
-	long	n;
-	long	nb;
+	int	i;
+	int	n;
+	int	nb;
 
 	i = 0;
 	n = 1;
 	nb = 0;
-	if (argv[i] == '-')
+	if (str[i] == '-')
 	{
 		n *= -1;
 		i++;
 	}
-	else if (argv[i] == '+')
+	else if (str[i] == '+')
 		i++;
-	while (argv[i] >= '0' && argv[i] <= '9')
-	{
-		nb = nb * 10 + (argv[i] - '0');
-		i++;
-	}
+	while (str[i] >= '0' && str[i] <= '9')
+		nb = nb * 10 + (str[i++] - '0');
 	return (n * nb);
 }
 
-int conversion(char **argv)
+int    *valid_check(char **argv, int argc, int *list)
 {
-    int list;
-    int count;
-
-    count = 0;
-    while(argv)
-        count++;
-    list = ft_calloc(sizeof(char), count + 1);
-    list = ft_atoi(argv);
-    return (list);
-}
-
-char    valid_check(char **argv)
-{
-    int list;
     int i;
+	int j;
+	int count;
 
-    i = 0;
-    if (!argv)
+    i = 1;
+	j = 0;
+	count = (argc - 1);
+    if (argc == 1)
         return (0);
     while(argv[i])
     {
-        if (argv[i] < '0' || argv[i] > '9')
-            return ('Error');
-        i++;
+		while(argv[i][j])
+		{
+        	if (argv[i][j] < '0' || argv[i][j] > '9')
+			{
+				free(list);
+            	return (NULL);
+			}
+			j++;
+		}
+			j = 0;
+        	i++;
     }
-    list = conversion(argv);
+	i = 1;
+	while(argv[i])
+	{
+    	list[i - 1] = ft_atoi(argv[i]);
+		i++;
+	}
     return (list);
 }
 
 int main(int argc, char **argv)
 {
-    int list;
-    (void)argc;
+    int	*list;
+	int i;
 
-    list = 0;
-
-    valid_check(argv);
-    printf("%d", list);
+	i = 0;
+    list = ft_calloc(sizeof(int), (argc - 1));
+    list = valid_check(argv, argc, list);
+	if (list == NULL)
+		return (0);
+    while(i < argc - 1)
+	{
+		printf("%d ", list[i]);
+		i++;
+	}
     return (0);
 }
