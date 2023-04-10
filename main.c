@@ -60,37 +60,70 @@ int	ft_atoi(char *str)
 	return (n * nb);
 }
 
-int    *valid_check(char **argv, int argc, int *list)
+int doublenum(int *list, int count)
 {
-    int i;
+	int i;
 	int j;
-	int count;
 
-    i = 1;
+	i = 0;
+	j = 1;
+	while(i < count)
+	{
+		while(j < count)
+		{
+			if(list[i] == list[j])
+				return(1);
+			j++;
+		}
+		i++;
+		j = i + 1;
+	}
+	return (0);
+}
+
+int isanum(char **argv, int *list)
+{
+	int j;
+	int i;
+
+	i = 1;
 	j = 0;
-	count = (argc - 1);
-    if (argc == 1)
-        return (0);
-    while(argv[i])
+	while(argv[i])
     {
 		while(argv[i][j])
 		{
         	if (argv[i][j] < '0' || argv[i][j] > '9')
 			{
 				free(list);
-            	return (NULL);
+            	return (1);
 			}
 			j++;
 		}
 			j = 0;
         	i++;
     }
+	return (0);
+}
+
+int    *valid_check(char **argv, int argc, int *list)
+{
+    int i;
+	int count;
+
+    i = 1;
+	count = (argc - 1);
+    if (argc == 1)
+        return (0);
+    isanum(argv, list);
 	i = 1;
 	while(argv[i])
 	{
     	list[i - 1] = ft_atoi(argv[i]);
 		i++;
 	}
+	//doublenum(argv, argc);
+	if(doublenum(list, count) == 1)
+		return(NULL);
     return (list);
 }
 

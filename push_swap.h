@@ -10,5 +10,7 @@ int	 	ft_atoi(char *str);
 int	    *valid_check(char **argv, int argc, int *list);
 void	ft_bzero(void *s, int len);
 void	*ft_calloc(int ecount, int esize);
+int 	isanum(char **argv, int *list);
+int 	doublenum(int *list, int count);
 
 #endif
