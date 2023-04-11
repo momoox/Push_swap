@@ -1,7 +1,6 @@
 NAME = push_swap.a
 
-SOURCES = ft_atoi.c main.c
-
+SOURCES = mainpush.c
 OBJECTS = $(SOURCES:.c=.o)
 
 CC = gcc

@@ -12,5 +12,6 @@ void	ft_bzero(void *s, int len);
 void	*ft_calloc(int ecount, int esize);
 int 	isanum(char **argv, int *list);
 int 	doublenum(int *list, int count);
+void	*errorexit(int *list);
 
 #endif
