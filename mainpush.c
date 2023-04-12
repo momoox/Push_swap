@@ -41,9 +41,9 @@ void	*ft_calloc(int ecount, int esize)
 
 int	ft_atoi(char *str)
 {
-	int	i;
-	int	n;
-	int	nb;
+	int		i;
+	int		n;
+	long	nb;
 
 	i = 0;
 	n = 1;
@@ -56,11 +56,16 @@ int	ft_atoi(char *str)
 	else if (str[i] == '+')
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')
-		nb = nb * 10 + (str[i++] - '0');
+	{
+		nb = nb * 10 + (str[i] - '0');
+		i++;
+	}
+	if (nb > 2147483647 || nb < -2147483648)
+		return(1);
 	return (n * nb);
 }
 
-void	*errorexit(int *list)
+void	errorexit(long *list)
 {
 	char *str;
 	int i;
@@ -70,13 +75,12 @@ void	*errorexit(int *list)
 	free(list);
 	while(str[i])
 	{
-		write(1, &str, 1);
+		write(1, &str[i], 1);
 		i++;
 	}
-	return(0);
 }
 
-int doublenum(int *list, int count)
+int doublenum(long *list, int count)
 {
 	int i;
 	int j;
@@ -88,10 +92,7 @@ int doublenum(int *list, int count)
 		while(j < count)
 		{
 			if(list[i] == list[j])
-			{
-				errorexit(list);
 				return(1);
-			}
 			j++;
 		}
 		i++;
@@ -100,7 +101,7 @@ int doublenum(int *list, int count)
 	return (0);
 }
 
-int isanum(char **argv, int *list)
+int isanum(char **argv, long *list)
 {
 	int j;
 	int i;
@@ -111,8 +112,13 @@ int isanum(char **argv, int *list)
     {
 		while(argv[i][j])
 		{
+			if (argv[i][j] == '-')
+				j++;
         	if (argv[i][j] < '0' || argv[i][j] > '9')
+			{
             	errorexit(list);
+				return (1);
+			}
 			j++;
 		}
 			j = 0;
@@ -121,7 +127,7 @@ int isanum(char **argv, int *list)
 	return (0);
 }
 
-int    *valid_check(char **argv, int argc, int *list)
+long    *valid_check(char **argv, int argc, long *list)
 {
     int i;
 	int count;
@@ -130,31 +136,45 @@ int    *valid_check(char **argv, int argc, int *list)
 	count = (argc - 1);
     if (argc == 1)
         return (0);
-    isanum(argv, list);
+    if(isanum(argv, list) == 1)
+		return(NULL);
 	i = 1;
 	while(argv[i])
 	{
-    	list[i - 1] = ft_atoi(argv[i]);
+		if (ft_atoi(argv[i]) == 1)
+		{
+			errorexit(list);
+			return(NULL);
+		}
+		else
+			list[i - 1] = ft_atoi(argv[i]);
 		i++;
 	}
 	if(doublenum(list, count) == 1)
+	{
 		errorexit(list);
+		return(NULL);
+	}
     return (list);
 }
 
 int main(int argc, char **argv)
 {
-    int	*list;
+    long	*list;
 	int i;
 
 	i = 0;
     list = ft_calloc(sizeof(int), (argc - 1));
-    list = valid_check(argv, argc, list);
+    if (valid_check(argv, argc, list) == NULL)
+		return(0);
 	if (list == NULL)
+	{
 		errorexit(list);
+		return (0);
+	}
     while(i < argc - 1)
 	{
-		printf("%d ", list[i]);
+		printf("%ld ", list[i]);
 		i++;
 	}
     return (0);
