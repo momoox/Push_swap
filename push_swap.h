@@ -1,17 +1,18 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "ft_printf/ft_printf.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
 # include <unistd.h>
 
 int	 	ft_atoi(char *str);
-long	    *valid_check(char **argv, int argc, long *list);
+int	    *valid_check(char **argv, int argc, int *list);
 void	ft_bzero(void *s, int len);
 void	*ft_calloc(int ecount, int esize);
-int 	isanum(char **argv, long *list);
-int 	doublenum(long *list, int count);
-void	errorexit(long *list);
+int 	isanum(char **argv, int *list);
+int 	doublenum(int *list, int count);
+void	errorexit(int *list);
 
 #endif

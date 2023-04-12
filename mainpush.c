@@ -65,23 +65,16 @@ int	ft_atoi(char *str)
 	return (n * nb);
 }
 
-void	errorexit(long *list)
+void	errorexit(int *list)
 {
-	char *str;
 	int i;
 
-	str = "Error";
 	i = 0;
 	free(list);
-	while(str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-	write(1, "\n", 1);
+	ft_printf("Error\n");
 }
 
-int doublenum(long *list, int count)
+int doublenum(int *list, int count)
 {
 	int i;
 	int j;
@@ -102,7 +95,7 @@ int doublenum(long *list, int count)
 	return (0);
 }
 
-int isanum(char **argv, long *list)
+int isanum(char **argv, int *list)
 {
 	int j;
 	int i;
@@ -128,7 +121,7 @@ int isanum(char **argv, long *list)
 	return (0);
 }
 
-long    *valid_check(char **argv, int argc, long *list)
+int    *valid_check(char **argv, int argc, int *list)
 {
     int i;
 	int count;
@@ -159,12 +152,13 @@ long    *valid_check(char **argv, int argc, long *list)
     return (list);
 }
 
+//gerer les guillemets
+
 int main(int argc, char **argv)
 {
-    long	*list;
-	int i;
+    int		*list;
+	int 	i;
 
-	i = 0;
     list = ft_calloc(sizeof(int), (argc - 1));
     if (valid_check(argv, argc, list) == NULL)
 		return(0);
@@ -173,10 +167,12 @@ int main(int argc, char **argv)
 		errorexit(list);
 		return (0);
 	}
+	i = 0;
     while(i < argc - 1)
 	{
-		printf("%ld ", list[i]);
-		i++;
+		ft_printf("%d ", list[i]);
+	 	i++;
 	}
+	ft_printf("\n");
     return (0);
 }
