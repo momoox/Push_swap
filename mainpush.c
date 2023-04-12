@@ -78,6 +78,7 @@ void	errorexit(long *list)
 		write(1, &str[i], 1);
 		i++;
 	}
+	write(1, "\n", 1);
 }
 
 int doublenum(long *list, int count)
