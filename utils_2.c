@@ -1,7 +1,7 @@
 #include "push_swap.h"
 
 
-//ILS TROUVENT PAS LE " CE CON
+// trucs apres "" illégale, "12 54"o ou "3" 45 okay
 
 int	ft_strchr(char **argv)
 {
