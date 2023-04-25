@@ -86,7 +86,7 @@ char	**ft_split(char *s, char c)
 	tab = malloc(sizeof(char *) * (count(s, c) + 1));
 	if (!tab)
 		return (0);
-	while (j < count(s, c))
+	if (j < count(s, c))
 	{
 		tab[j++] = cpyword(s, &i, c, lenword(s, i, c));
 		if (!tab[j - 1])
@@ -96,21 +96,24 @@ char	**ft_split(char *s, char c)
 	return (tab);
 }
 
-
+/*
 int main(int argc, char **argv)
 {
     char *str;
     char **s;
     int i;
     int u;
+	int j;
 
     i = 0;
     u = 1;
+	j = 0;
     while (u < argc)
     {
         str = strdup(argv[u]);
-        s = ft_split(str, '"');
+        s[j] = *ft_split(str, '"');
         u++;
+		j++;
     }
     while(i < argc)
     {
@@ -119,3 +122,4 @@ int main(int argc, char **argv)
     }
     return (0);
 }
+*/
