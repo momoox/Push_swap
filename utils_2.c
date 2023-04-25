@@ -12,6 +12,7 @@ int	ft_strchr(char **argv)
     j = 0;
 	while (argv[i])
 	{
+		// condition pas + de 2 argv
 		while(argv[i][j])
         {
             if(argv[i][j] == (char)' ')
