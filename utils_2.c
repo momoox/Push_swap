@@ -1,8 +1,5 @@
 #include "push_swap.h"
 
-
-// trucs apres "" illégale, "12 54"o ou "3" 45 okay
-
 int	ft_strchr(char **argv)
 {
 	int	i;
@@ -12,7 +9,6 @@ int	ft_strchr(char **argv)
     j = 0;
 	while (argv[i])
 	{
-		// condition pas + de 2 argv
 		while(argv[i][j])
         {
             if(argv[i][j] == (char)' ')
@@ -24,7 +20,7 @@ int	ft_strchr(char **argv)
 	}
 	return (0);
 }
-
+//a modifier
 
 int	ft_atoi(char *str, int *a_error)
 {
@@ -53,4 +49,35 @@ int	ft_atoi(char *str, int *a_error)
 		return(*a_error);
 	}
 	return (n * nb);
+}
+
+void	ft_swap(int *a, int *b)
+{
+	int c;
+
+	c = *a;
+	*a = *b;
+	*b = c;
+}
+
+int     is_empty(t_stacks *s)
+{
+	if(s == NULL)
+		return (NULL);
+	return (0);
+}
+
+int	stack_len(t_stacks *s)
+{
+	int len
+
+	len = 0;
+	if(is_empty(s) == NULL)
+		return(len);
+	while(s != NULL)
+	{
+		len++;
+		s = s->next;
+	}
+	return (size);
 }

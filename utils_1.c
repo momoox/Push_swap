@@ -45,7 +45,7 @@ void	errorexit(int *list)
 	printf("Error\n");
 }
 
-int doublenum(int *stack_a, int count)
+int doublenum(int *list, int count)
 {
 	int i;
 	int j;
@@ -56,7 +56,7 @@ int doublenum(int *stack_a, int count)
 	{
 		while(j < count)
 		{
-			if(stack_a[i] == stack_a[j])
+			if(list[i] == list[j])
 				return(1);
 			j++;
 		}
@@ -66,7 +66,7 @@ int doublenum(int *stack_a, int count)
 	return (0);
 }
 
-int isanum(char **argv, int *stack_a)
+int isanum(char **argv, int *list)
 {
 	int j;
 	int i;
@@ -81,7 +81,7 @@ int isanum(char **argv, int *stack_a)
 				j++;
         	if (argv[i][j] < '0' || argv[i][j] > '9')
 			{
-            	errorexit(stack_a);
+            	errorexit(list);
 				return (1);
 			}
 			j++;

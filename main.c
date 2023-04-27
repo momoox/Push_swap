@@ -1,22 +1,24 @@
 #include "push_swap.h"
 
+
+//remplacer tableau par liste
 int main(int argc, char **argv)
 {
-    int		*stack_a;
+    int		*list;
 	int 	i;
 
-    stack_a = ft_calloc(sizeof(int), (argc - 1));
-    if (valid_check(argv, argc, stack_a) == NULL)
+    list = ft_calloc(sizeof(int), (argc - 1));
+    if (valid_check(argv, argc, list) == NULL)
 		return(0);
-	if (stack_a == NULL)
+	if (list == NULL)
 	{
-		errorexit(stack_a);
+		errorexit(list);
 		return (0);
 	}
 	i = 0;
     while(i < argc - 1)
 	{
-		printf("%d ", stack_a[i]);
+		printf("%d ", list[i]);
 	 	i++;
 	}
 	printf("\n");
