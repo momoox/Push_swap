@@ -34,7 +34,7 @@ void    ss(t_stacks *s)
 //Ne fait rien si b est vide.
 void    pa(t_stacks *s)
 {
-    if(is_empty(s) == NULL)
+    if(is_empty(s->stack_b) == NULL)
         return ;
     s->stack_b[0]->next = s->stack_a;
     //pas sur de celle là
@@ -43,7 +43,7 @@ void    pa(t_stacks *s)
 //Ne fait rien si a est vide.
 void    pb(t_stacks *s)
 {
-    if(is_empty(s) == NULL)
+    if(is_empty(s->stack_a) == NULL)
         return ;
     s->stack_a[0]->next = s->stack_b;
     //pas sur de celle là
