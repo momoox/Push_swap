@@ -4,7 +4,7 @@
 //remplacer tableau par liste
 int main(int argc, char **argv)
 {
-    int		*list;
+  t_stacks *s;
 	int 	i;
 
     list = ft_calloc(sizeof(int), (argc - 1));
