@@ -15,7 +15,7 @@ int    *valid_check(char **argv, int argc, t_stacks *s)
         return (0);
     if (ft_strchr(argv) == 1)
 		argv = ft_split(argv[1], ' ');
-    if (isanum(argv, s) == 1)
+    if (isanum(argv, s->stack_a) == 1)
 		return(NULL);
 	//i = 1;
 	while(argv[++i])
@@ -24,10 +24,10 @@ int    *valid_check(char **argv, int argc, t_stacks *s)
 			errorexit(s);
 		s->stack_a[i - 1] = ft_atoi(argv[i], &a_error);
 	}
-	if(doublenum(s, count) == 1)
+	if(doublenum(s->stack_a, count) == 1)
 	{
-		errorexit(s);
+		errorexit(s->stack_a);
 		return(NULL);
 	}
-    return (s);
+    return (s->stack_a);
 }
