@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/03 20:59:11 by marvin            #+#    #+#             */
-/*   Updated: 2023/04/03 20:59:11 by marvin           ###   ########.fr       */
+/*   Created: 2023/05/02 17:33:23 by mgeisler          #+#    #+#             */
+/*   Updated: 2023/05/02 17:33:23 by mgeisler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,34 +39,44 @@ void	*ft_calloc(int ecount, int esize)
 	return (str);
 }
 
-void	errorexit(int *list)
+t_stacks	*errorexit(t_stacks **first)
 {
-	free(list);
-	printf("Error\n");
-}
-
-int doublenum(int *list, int count)
-{
-	int i;
-	int j;
-
-	i = 0;
-	j = 1;
-	while(i < count)
+	t_stacks *temp;
+	t_stacks *temp2;
+	
+	temp = *first;
+	while(temp != NULL)
 	{
-		while(j < count)
-		{
-			if(list[i] == list[j])
-				return(1);
-			j++;
-		}
-		i++;
-		j = i + 1;
+		temp2 = temp;
+		temp = temp->next;
+		free(temp2);
 	}
-	return (0);
+	return(NULL);
 }
 
-int isanum(char **argv, int *list)
+t_stacks *doublenum(t_stacks **first)
+{
+	t_stacks *temp;
+	t_stacks *temp2;
+	int test;
+
+	temp = *first;
+	while(temp != NULL)
+	{
+		test = temp->value;
+		temp = temp->next;
+		temp2 = temp;
+		while(temp2 != NULL)
+		{
+			if (temp2->value == test)
+				return(NULL);
+			temp2 = temp2->next;
+		}
+	}
+	return(*first);
+}
+
+int isanum(char **argv)
 {
 	int j;
 	int i;
@@ -79,11 +89,9 @@ int isanum(char **argv, int *list)
 		{
 			if (argv[i][j] == '-')
 				j++;
+				// +1 oui, + 1 non
         	if (argv[i][j] < '0' || argv[i][j] > '9')
-			{
-            	errorexit(list);
 				return (1);
-			}
 			j++;
 		}
 			j = 0;
@@ -91,5 +99,3 @@ int isanum(char **argv, int *list)
     }
 	return (0);
 }
-
-//gerer les guillemets

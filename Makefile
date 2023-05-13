@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SOURCES = mainpush.c 
+SOURCES = main.c ft_split.c instructions.c parser.c utils_1.c utils_2.c utils_3.c
 OBJECTS = $(SOURCES:.c=.o)
 
 CC = gcc

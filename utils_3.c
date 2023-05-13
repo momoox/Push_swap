@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_3.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/02 17:33:53 by mgeisler          #+#    #+#             */
+/*   Updated: 2023/05/02 17:33:53 by mgeisler         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void    print_list_a(t_stacks *s)
 {
-    if(is_empty(s->stack_a) == NULL)
+    if(s->stack_a == NULL)
         return ;
     while(s != NULL)
     {
@@ -14,7 +26,7 @@ void    print_list_a(t_stacks *s)
 
 void    print_list_b(t_stacks *s)
 {
-    if(is_empty(s->stack_b) == NULL)
+    if(s->stack_b == NULL)
         return ;
     while(s != NULL)
     {

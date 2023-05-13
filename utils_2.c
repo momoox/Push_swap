@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_2.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/02 17:33:35 by mgeisler          #+#    #+#             */
+/*   Updated: 2023/05/02 17:33:35 by mgeisler         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_strchr(char **argv)
@@ -60,24 +72,21 @@ void	ft_swap(int *a, int *b)
 	*b = c;
 }
 
-int     is_empty(t_stacks *s)
-{
-	if(s == NULL)
-		return (NULL);
-	return (0);
-}
+// char : return(NULL);
+// int : return(0);
+// void : return ;
 
 int	stack_len(t_stacks *s)
 {
-	int len
+	int len;
 
 	len = 0;
-	if(is_empty(s) == NULL)
+	if(s == NULL)
 		return(len);
 	while(s != NULL)
 	{
 		len++;
 		s = s->next;
 	}
-	return (size);
+	return (len);
 }
