@@ -89,10 +89,14 @@ int isanum(char **argv)
 		{
 			if (argv[i][j] == '-')
 				j++;
-				// +1 oui, + 1 non
-        	if (argv[i][j] < '0' || argv[i][j] > '9')
+			if (argv[i][j] == '+' && argv[i][j + 1] == ' ')
 				return (1);
-			j++;
+			if (argv[i][j] == '+')
+				j++;
+        	if (argv[i][j] > '0' && argv[i][j] < '9')
+				j++;
+			else
+				return (1);
 		}
 			j = 0;
         	i++;

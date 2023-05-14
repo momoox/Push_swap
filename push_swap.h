@@ -41,18 +41,18 @@ t_stacks    *valid_check(char **argv, int argc, t_stacks **first);
 // void    pb(t_stacks *s);
 
 //utils_1
-void	ft_bzero(void *s, int len);
-void	*ft_calloc(int ecount, int esize);
-int 	isanum(char **argv);
-t_stacks *doublenum(t_stacks **first);
-t_stacks*    errorexit(t_stacks **first);
+void	    ft_bzero(void *s, int len);
+void	    *ft_calloc(int ecount, int esize);
+int 	    isanum(char **argv);
+t_stacks    *doublenum(t_stacks **first);
+t_stacks    *errorexit(t_stacks **first);
 
 //utils_2
-int	    ft_strchr(char **argv);
-int	 	ft_atoi(char *str, int *a_error);
-void	ft_swap(int *a, int *b);
-int     is_empty(t_stacks *first);
-int	    stack_len(t_stacks *first);
+int	        ft_strchr(char **argv);
+int	 	    ft_atoi(char *str, int *a_error);
+void	    ft_swap(int *a, int *b);
+int         is_empty(t_stacks *first);
+int	        stack_len(t_stacks *first);
 
 //utils_3
 //void    print_list_a(t_stacks *s);
@@ -60,14 +60,15 @@ int	    stack_len(t_stacks *first);
 
 //utils_4
 t_stacks	*ft_lstnew(int value);
-void	lstadd_front(t_stacks **first, t_stacks *new);
-void	lstadd_back(t_stacks **first, t_stacks *new);
+void	    lstadd_front(t_stacks **first, t_stacks *new);
+void	    lstadd_back(t_stacks **first, t_stacks *new);
+int	        ft_strlen(char *str);
 
 //split
-char	**ft_split(char *s, char c);
-char	**freeall(char **tab);
-char	*cpyword(char *s, int *i, char c, int len);
-int	    lenword(char *s, int i, char c);
-int	    count(char *s, char c);
+char	    **ft_split(char *s, char c);
+char	    **freeall(char **tab);
+char	    *cpyword(char *s, int *i, char c, int len);
+int	        lenword(char *s, int i, char c);
+int	        count(char *s, char c);
 
 #endif
