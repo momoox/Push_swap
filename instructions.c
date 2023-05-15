@@ -16,35 +16,48 @@
 
 //sa (swap a) : Intervertit les 2 premiers éléments au sommet de la pile a.
 //Ne fait rien s’il n’y en a qu’un ou aucun
-void    sa(t_stacks **first)
+void    sa(t_stacks **firsta)
 {
     t_stacks *temp;
 
-    temp = *first;
-    if (first)
+    temp = *first->next;
+    if (*first)
     {
-
+        if (temp->next)
+        {
+            ft_swap(&temp->value, &temp->next->value);
+        }
     }
 }
 
 //sb (swap b ) : Intervertit les 2 premiers éléments au sommet de la pile b.
 //Ne fait rien s’il n’y en a qu’un ou aucun.
-void    sb(t_stacks **first)
+void    sb(t_stacks **firstb)
 {
+    t_stacks *temp;
 
+    temp = *firstb->next;
+    if (*first)
+    {
+        if (temp->next)
+        {
+            ft_swap(&temp->value, &temp->next->value);
+        }
+    }
 }
 
 //ss : sa et sb en même temps.
-void    ss(t_stacks **first)
+void    ss(t_stacks **firsta, t_stacks **firstb)
 {
-
+    sa(firsta);
+    sb(firstb);
 }
 
 //pa (push a) : Prend le premier élément au sommet de b et le met sur a.
 //Ne fait rien si b est vide.
 void    pa(t_stacks **first)
 {
-
+    
 }
 //pb (push b) : Prend le premier élément au sommet de a et le met sur b.
 //Ne fait rien si a est vide.
