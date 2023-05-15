@@ -13,39 +13,26 @@
 #include "push_swap.h"
 
 
-t_stacks    *parser(char **argv, int argc, t_stacks **first)
+t_stacks    *parser(char **argv, int argc, t_stacks **stack_a)
 {
     int i;
 	int a_error;
 
     i = 1;
 	a_error = 0;
-    // if (argc == 1)
-    //     return (NULL);
-    // if (ft_strchr(argv) == 1)
-	// 	argv = ft_split(argv[1], ' ');
-	// while(argv[i])
-	// {
-	// 	if(ft_strlen(argv[i]) > 10)
-	// 		return(NULL);
-	// 	i++;
-	// }
-	// i = 1;
-    // if (isanum(argv) == 1)
-	// 	return(NULL);
 	check_argv(argv, argc, &a_error);
 	if (a_error == 1)
 		return(NULL);
 	while(argv[i])
 	{
 		if (a_error == 1)
-			return(errorexit(first));
-		lstadd_back(first, ft_lstnew(ft_atoi(argv[i++], &a_error)));
+			return(errorexit(stack_a));
+		lstadd_back(stack_a, ft_lstnew(ft_atoi(argv[i++], &a_error)));
 	}
-	if(doublenum(first) == NULL)
-		return(errorexit(first));
+	if(doublenum(stack_a) == NULL)
+		return(errorexit(stack_a));
 	//check si la chaine est déjà triée (exit 0)
-    return (*first);
+    return (*stack_a);
 }
 
 char	*check_argv(char **argv, int argc, int *a_error)

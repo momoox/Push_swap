@@ -14,13 +14,17 @@
 
 int main(int argc, char **argv)
 {
-  	t_stacks *first;
+  	t_stacks *stack_a;
+	t_stacks *stack_b;
 	t_stacks *temp;
 
 	//parser
-    if (parser(argv, argc, &first) == NULL)
+    if (parser(argv, argc, &stack_a) == NULL)
 		return(printf("Error\n"));
-	temp = first;
+	//firstb doit être créée
+	stack_b = ft_calloc(1, sizeof(t_stacks));
+	//sort
+	temp = stack_a;
     while(temp != NULL)
 	{
 		printf("%d ", temp->value);

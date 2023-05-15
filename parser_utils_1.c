@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-t_stacks	*errorexit(t_stacks **first)
+t_stacks	*errorexit(t_stacks **stack_a)
 {
 	t_stacks *temp;
 	t_stacks *temp2;
 	
-	temp = *first;
+	temp = *stack_a;
 	while(temp != NULL)
 	{
 		temp2 = temp;
@@ -27,13 +27,13 @@ t_stacks	*errorexit(t_stacks **first)
 	return(NULL);
 }
 
-t_stacks *doublenum(t_stacks **first)
+t_stacks *doublenum(t_stacks **stack_a)
 {
 	t_stacks *temp;
 	t_stacks *temp2;
 	int test;
 
-	temp = *first;
+	temp = *stack_a;
 	while(temp != NULL)
 	{
 		test = temp->value;
@@ -46,7 +46,7 @@ t_stacks *doublenum(t_stacks **first)
 			temp2 = temp2->next;
 		}
 	}
-	return(*first);
+	return(*stack_a);
 }
 
 int isanum(char **argv, int *a_error)
