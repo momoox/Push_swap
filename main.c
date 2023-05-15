@@ -12,17 +12,14 @@
 
 #include "push_swap.h"
 
-
-//remplacer tableau par liste
 int main(int argc, char **argv)
 {
   	t_stacks *first;
 	t_stacks *temp;
-	int 	i;
 
-    if (valid_check(argv, argc, &first) == NULL)
+	//parser
+    if (parser(argv, argc, &first) == NULL)
 		return(printf("Error\n"));
-	i = 0;
 	temp = first;
     while(temp != NULL)
 	{
