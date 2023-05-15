@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include"push_swap.h"
+#include"push_swap.h"
 
 //regarder video sur les listes et structures
 
@@ -20,7 +20,9 @@ void    sa(t_stacks **stack_a)
 {
     t_stacks *temp;
 
-    temp = *stack_a->next;
+    if(stack_a == NULL)
+        return ;
+    temp = *stack_a;
     if (*stack_a)
     {
         if (temp->next)
@@ -28,43 +30,61 @@ void    sa(t_stacks **stack_a)
             ft_swap(&temp->value, &temp->next->value);
         }
     }
+    else
+        return ;
 }
 
 //sb (swap b ) : Intervertit les 2 premiers éléments au sommet de la pile b.
 //Ne fait rien s’il n’y en a qu’un ou aucun.
-void    sb(t_stacks **stack_b)
-{
-    t_stacks *temp;
+// void    sb(t_stacks **stack_b)
+// {
+//     t_stacks *temp;
 
-    temp = *stack_b->next;
-    if (*stack_b)
-    {
-        if (temp->next)
-        {
-            ft_swap(&temp->value, &temp->next->value);
-        }
-    }
-}
+//if(stack_a == NULL)
+  //          return ;
+//     temp = *stack_b->next;
+//     if (*stack_b)
+//     {
+//         if (temp->next)
+//         {
+//             ft_swap(&temp->value, &temp->next->value);
+//         }
+//     }
+//     else
+//         return ;
+// }
 
 //ss : sa et sb en même temps.
-void    ss(t_stacks **stack_a, t_stacks **stack_b)
-{
-    sa(stack_a);
-    sb(stack_b);
-}
+// void    ss(t_stacks **stack_a, t_stacks **stack_b)
+// {
+//     sa(stack_a);
+//     sb(stack_b);
+// }
 
 //pa (push a) : Prend le premier élément au sommet de b et le met sur a.
 //Ne fait rien si b est vide.
-void    pa(t_stacks **stack_a, t_stacks **stack_b)
-{
+// void    pa(t_stacks **stack_a, t_stacks **stack_b)
+// {
+//     t_stacks *temp;
 
-}
+//     temp = *stack_b;
+//     if (*stack_b)
+//     {
+//         if (temp->next)
+//         {
+//             temp->next = *stack_a;
+//             *stack_a = temp;
+//         }
+//     }
+//     else
+//         return ;
+// }
 //pb (push b) : Prend le premier élément au sommet de a et le met sur b.
 //Ne fait rien si a est vide.
-void    pb(t_stacks **stack_a, t_stacks **stack_b)
-{
+// void    pb(t_stacks **stack_a, t_stacks **stack_b)
+// {
 
-}
+// }
 
 //ra (rotate a) : Décale d’une position vers le haut tous les élements de la pile a.
 //Le premier élément devient le dernier.
