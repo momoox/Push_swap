@@ -121,9 +121,6 @@ int	ft_atoi(char *str, int *a_error)
 		i++;
 	}
 	if (nb > 2147483647 || nb < -2147483648)
-	{
 		*a_error = 1;
-		return(*a_error);
-	}
 	return (n * nb);
 }

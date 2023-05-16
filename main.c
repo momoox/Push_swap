@@ -16,31 +16,26 @@ int main(int argc, char **argv)
 {
   	t_stacks *stack_a;
 	t_stacks *stack_b;
-	t_stacks *temp;
 
-	//parser
+//parser
     if (parser(argv, argc, &stack_a) == NULL)
 		return(printf("Error\n"));
-	//firstb doit être créée
-	stack_b = ft_calloc(1, sizeof(t_stacks));
-	//sort(t_stacks **stack_a, t_stacks **stack_b);
-	temp = stack_a;
+	stack_b = NULL;
+//sort(t_stacks **stack_a, t_stacks **stack_b);
+//print A avant
 	write(1, "avant\n", 6);
-	print_list_a(&stack_a);    
-	// while(temp != NULL)
-	// {
-	// 	printf("%d ", temp->value);
-	// 	temp = temp->next;
-	// }
-	sa(&stack_a);
-	temp = stack_a;
+	print_list_a(&stack_a);
+//print B avant   
+	// write(1, "avant\n", 6);
+	// print_list_b(&stack_b);
+	printf("\n");
+	rrb(&stack_b);
+//print A apres
 	write(1, "apres\n", 6);
 	print_list_a(&stack_a);
-	// while(temp != NULL)
-	// {
-	// 	printf("%d ", temp->value);
-	// 	temp = temp->next;
-	// }
+//print B apres
+	// write(1, "apres\n", 6);
+	// print_list_b(&stack_b);
 	printf("\n");
     return (0);
 }

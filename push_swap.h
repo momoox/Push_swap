@@ -43,19 +43,19 @@ int 	    isanum(char **argv, int *a_error);
 t_stacks    *doublenum(t_stacks **stack_a);
 t_stacks    *errorexit(t_stacks **stack_a);
 int	        ft_strchr(char **argv);
-int	 	    ft_atoi(char *str, int *a_error);
+int		    ft_atoi(char *str, int *a_error);
 
 //utils_2
 void	    ft_swap(int *a, int *b);
 // int         is_empty(t_stacks *stack_a);
 int	        ft_strlen(char *str);
 
-//utils_3
+//print_stacks
 void    print_list_a(t_stacks **stack_a);
-//void    print_list_b(t_stacks *s);
+void    print_list_b(t_stacks **stack_b);
 
 //list_moves
-t_stacks	*ft_lstnew(int value);
+t_stacks	*ft_lstnew(int content);
 void	    lstadd_front(t_stacks **stack_a, t_stacks *new);
 void	    lstadd_back(t_stacks **stack_a, t_stacks *new);
 
@@ -70,11 +70,16 @@ int	        count(char *s, char c);
 
 //instructions
 void    sa(t_stacks **stack_a);
-//void    sb(t_stacks **stack_b);
-//void    ss(t_stacks **stack_a, t_stacks **stack_b);
-//void    pa(t_stacks **stack_a, t_stacks **stack_b);
-//void    pb(t_stacks **stack_a, t_stacks **stack_b);
-
+void    sb(t_stacks **stack_b);
+void    ss(t_stacks **stack_a, t_stacks **stack_b);
+void    pa(t_stacks **stack_a, t_stacks **stack_b);
+void    pb(t_stacks **stack_a, t_stacks **stack_b);
+void    ra(t_stacks **stack_a);
+void    rb(t_stacks **stack_b);
+void    rr(t_stacks **stack_a, t_stacks **stack_b);
+void    rra(t_stacks **stack_a);
+void    rrb(t_stacks **stack_b);
+void	rrr(t_stacks **stack_a, t_stacks **stack_b);
 //sort
 // void    sort(t_stacks **stack_a, t_stacks **stack_b);
 

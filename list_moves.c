@@ -6,20 +6,20 @@
 /*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 17:34:15 by mgeisler          #+#    #+#             */
-/*   Updated: 2023/05/15 17:34:27 by mgeisler         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:24:39 by mgeisler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stacks	*ft_lstnew(int value)
+t_stacks	*ft_lstnew(int content)
 {
 	t_stacks *new;
 
-	new = ft_calloc(sizeof(t_stacks), 1);
+	new = (t_stacks *)ft_calloc(sizeof(t_stacks), 1);
 	if (!new)
 		return (NULL);
-	new->value = value;
+	new->value = content;
 	return(new);
 }
 
