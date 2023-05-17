@@ -13,7 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-//# include "ft_printf/ft_printf.h"
+# include "ft_printf/ft_printf.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
@@ -25,7 +25,6 @@ typedef struct list
     int value;
     struct list *next;
 }   t_stacks;
-//se renseigner sur les structures de contrôle (pas besoin peut etre)
 
 //ft_calloc
 void	    ft_bzero(void *s, int len);
@@ -47,8 +46,9 @@ int		    ft_atoi(char *str, int *a_error);
 
 //utils_2
 void	    ft_swap(int *a, int *b);
-// int         is_empty(t_stacks *stack_a);
 int	        ft_strlen(char *str);
+int			stacksorted(t_stacks **stack_a);
+//int       stack_len(t_stacks *stack_a);
 
 //print_stacks
 void    print_list_a(t_stacks **stack_a);
@@ -66,7 +66,6 @@ char	    *cpyword(char *s, int *i, char c, int len);
 int	        lenword(char *s, int i, char c);
 int	        count(char *s, char c);
 
-//int	        stack_len(t_stacks *stack_a);
 
 //instructions
 void    sa(t_stacks **stack_a);
@@ -80,7 +79,10 @@ void    rr(t_stacks **stack_a, t_stacks **stack_b);
 void    rra(t_stacks **stack_a);
 void    rrb(t_stacks **stack_b);
 void	rrr(t_stacks **stack_a, t_stacks **stack_b);
+
 //sort
-// void    sort(t_stacks **stack_a, t_stacks **stack_b);
+//void    	sort(t_stacks **stack_a, t_stacks **stack_b);
+//void		sortlil(t_stacks **stack_a, t_stacks **stack_b);
+//void		sortbig(t_stacks **stack_a, t_stacks **stack_b);
 
 #endif

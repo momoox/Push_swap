@@ -25,20 +25,20 @@ void	ft_swap(int *a, int *b)
 // int : return(0);
 // void : return ;
 
-int	stack_len(t_stacks *s)
-{
-	int len;
+// int	stack_len(t_stacks *s)
+// {
+// 	int len;
 
-	len = 0;
-	if(s == NULL)
-		return(len);
-	while(s != NULL)
-	{
-		len++;
-		s = s->next;
-	}
-	return (len);
-}
+// 	len = 0;
+// 	if(s == NULL)
+// 		return(len);
+// 	while(s != NULL)
+// 	{
+// 		len++;
+// 		s = s->next;
+// 	}
+// 	return (len);
+// }
 
 int	ft_strlen(char *str)
 {
@@ -48,4 +48,18 @@ int	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+int		stacksorted(t_stacks **stack_a)
+{
+	t_stacks *temp;
+
+	temp = *stack_a;
+	while(temp->next != NULL && temp->value < temp->next->value)
+	{
+		temp = temp->next;
+		if(temp->next == NULL)
+			exit(1);
+	}
+	return (0);
 }

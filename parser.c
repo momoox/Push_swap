@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2023/05/02 17:33:19 by mgeisler          #+#    #+#             */
 /*   Updated: 2023/05/02 17:33:19 by mgeisler         ###   ########.fr       */
 /*                                                                            */
@@ -12,27 +15,26 @@
 
 #include "push_swap.h"
 
-
-t_stacks    *parser(char **argv, int argc, t_stacks **stack_a)
+t_stacks	*parser(char **argv, int argc, t_stacks **stack_a)
 {
-    int i;
+	int i;
 	int a_error;
 
-    i = 1;
+	i = 1;
 	a_error = 0;
 	check_argv(argv, argc, &a_error);
 	if (a_error == 1)
-		return(NULL);
-	while(argv[i])
+		return (NULL);
+	while (argv[i])
 	{
 		if (a_error == 1)
-			return(errorexit(stack_a));
+			return (errorexit(stack_a));
 		lstadd_back(stack_a, ft_lstnew(ft_atoi(argv[i++], &a_error)));
 	}
-	if(doublenum(stack_a) == NULL)
-		return(errorexit(stack_a));
-	//check si la chaine est déjà triée (exit 0)
-    return (*stack_a);
+	if (doublenum(stack_a) == NULL)
+		return (errorexit(stack_a));
+	stacksorted(stack_a);
+	return (*stack_a);
 }
 
 char	*check_argv(char **argv, int argc, int *a_error)
@@ -43,18 +45,18 @@ char	*check_argv(char **argv, int argc, int *a_error)
 	i = 1;
 	j = 0;
 	if (argc == 1)
-		return(0);
+		return (0);
 	if (ft_strchr(argv) == 1)
 		argv = ft_split(argv[1], ' ');
-	while(argv[i])
+	while (argv[i])
 	{
-		if(ft_strlen(argv[i]) > 10)
-			return(0);
+		if (ft_strlen(argv[i]) > 10)
+			return (0);
 		i++;
 	}
 	i = 1;
 	isanum(argv, a_error);
 	if (*a_error == 1)
-		return(NULL);
-	return(*argv);
+		return (NULL);
+	return (*argv);
 }

@@ -21,10 +21,10 @@ void    print_list_a(t_stacks **stack_a)
         return ;
     while(temp)
     {
-        printf("%d " ,temp->value);
+        ft_printf("%d " ,temp->value);
         temp = temp->next;
     }
-    printf("\n");
+    ft_printf("\n");
 }
 
 void    print_list_b(t_stacks **stack_b)
@@ -36,8 +36,8 @@ void    print_list_b(t_stacks **stack_b)
         return ;
     while(temp)
     {
-        printf("%d " ,temp->value);
+        ft_printf("%d " ,temp->value);
         temp = temp->next;
     }
-    printf("\n");
+    ft_printf("\n");
 }
