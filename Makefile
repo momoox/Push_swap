@@ -1,7 +1,7 @@
 NAME = push_swap
 
 SOURCES = ft_calloc.c main.c ft_split.c instructions.c list_moves.c print_stacks.c\
-			parser.c parser_utils_1.c utils_2.c sort.c\
+			parser.c parser_utils_1.c utils_2.c init_sort.c\
 
 OBJECTS = $(SOURCES:.c=.o)
 

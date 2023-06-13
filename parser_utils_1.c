@@ -14,11 +14,11 @@
 
 t_stacks	*errorexit(t_stacks **stack_a)
 {
-	t_stacks *temp;
-	t_stacks *temp2;
-	
+	t_stacks	*temp;
+	t_stacks	*temp2;
+
 	temp = *stack_a;
-	while(temp != NULL)
+	while (temp != NULL)
 	{
 		temp2 = temp;
 		temp = temp->next;
@@ -51,50 +51,49 @@ t_stacks *doublenum(t_stacks **stack_a)
 
 int isanum(char **argv, int *a_error)
 {
-	int j;
-	int i;
+	int	j;
+	int	i;
 
 	i = 1;
 	j = 0;
-	while(argv[i])
-    {
-		while(argv[i][j])
+	while (argv[i])
+	{
+		while (argv[i][j])
 		{
-			if ((argv[i][j] == '+' || argv[i][j] == '-' ) && !(argv[i][j + 1] > '0' && argv[i][j + 1] < '9'))
-			{
-				*a_error = 1;
-				return (*a_error);
-			}
+			if ((argv[i][j] == '+' || argv[i][j] == '-' )
+				&& !(argv[i][j + 1] > '0' && argv[i][j + 1] < '9'))
+				//*a_error = 1;
+				return (*a_error = 1);
 			if (argv[i][j] == '+' || argv[i][j] == '-')
 				j++;
-        	if (argv[i][j] > '0' && argv[i][j] < '9')
+			if (argv[i][j] > '0' && argv[i][j] < '9')
 				j++;
 			else
 				return (1);
 		}
 			j = 0;
-        i++;
-    }
+		i++;
+	}
 	return (0);
 }
 
 int	ft_strchr(char **argv)
 {
 	int	i;
-    int j;
+	int	j;
 
 	i = 1;
-    j = 0;
+	j = 0;
 	while (argv[i])
 	{
-		while(argv[i][j])
-        {
-            if(argv[i][j] == (char)' ')
-                return(1);
+		while (argv[i][j])
+		{
+			if (argv[i][j] == (char) ' ')
+				return (1);
 			j++;
-        }
+		}
 		i++;
-        j = 0;
+		j = 0;
 	}
 	return (0);
 }

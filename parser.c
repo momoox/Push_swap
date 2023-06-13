@@ -2,14 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2023/05/02 17:33:19 by mgeisler          #+#    #+#             */
-/*   Updated: 2023/05/02 17:33:19 by mgeisler         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/07 17:54:39 by mgeisler          #+#    #+#             */
+/*   Updated: 2023/06/07 17:54:39 by mgeisler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +30,8 @@ t_stacks	*parser(char **argv, int argc, t_stacks **stack_a)
 	}
 	if (doublenum(stack_a) == NULL)
 		return (errorexit(stack_a));
-	stacksorted(stack_a);
+	if (stacksorted(stack_a) == 1)
+		exit(1);
 	return (*stack_a);
 }
 

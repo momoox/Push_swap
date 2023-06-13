@@ -6,7 +6,7 @@
 /*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 17:34:15 by mgeisler          #+#    #+#             */
-/*   Updated: 2023/05/16 19:24:39 by mgeisler         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:46:06 by mgeisler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stacks	*ft_lstnew(int content)
 	if (!new)
 		return (NULL);
 	new->value = content;
+	new->rank = 0;
 	return(new);
 }
 
