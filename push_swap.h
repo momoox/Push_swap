@@ -35,7 +35,7 @@ int			main(int argc, char **argv);
 
 //parser
 t_stacks	*parser(char **argv, int argc, t_stacks **stack_a);
-char		*check_argv(char **argv, int argc, int *a_error);
+char		**check_argv(char **argv, int argc, int *a_error, int *);
 
 //parser_utils_1
 int			isanum(char **argv, int *a_error);
@@ -60,11 +60,7 @@ void		lstadd_front(t_stacks **stack_a, t_stacks *new);
 void		lstadd_back(t_stacks **stack_a, t_stacks *new);
 
 //split
-char		**ft_split(char *s, char c);
-char		**freeall(char **tab);
-char		*cpyword(char *s, int *i, char c, int len);
-int			lenword(char *s, int i, char c);
-int			count(char *s, char c);
+char		**ft_split(const char *s, char c);
 
 //instructions
 void		sa(t_stacks **stack_a);

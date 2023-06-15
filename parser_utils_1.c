@@ -60,9 +60,9 @@ int isanum(char **argv, int *a_error)
 	{
 		while (argv[i][j])
 		{
-			if ((argv[i][j] == '+' || argv[i][j] == '-' )
-				&& !(argv[i][j + 1] > '0' && argv[i][j + 1] < '9'))
-				//*a_error = 1;
+			if ((argv[i][j] == '+' || argv[i][j] == '-' ))
+				j++;
+			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
 				return (*a_error = 1);
 			if (argv[i][j] == '+' || argv[i][j] == '-')
 				j++;
@@ -119,7 +119,7 @@ int	ft_atoi(char *str, int *a_error)
 		nb = nb * 10 + (str[i] - '0');
 		i++;
 	}
-	if (nb > 2147483647 || nb < -2147483648)
+	if (nb > 2147483647 || nb < -2147483648 || str[i] != '\0' || i > 15)
 		*a_error = 1;
 	return (n * nb);
 }

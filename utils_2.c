@@ -55,6 +55,8 @@ int	stacksorted(t_stacks **stack_a)
 	t_stacks	*temp;
 
 	temp = *stack_a;
+	if (temp->next == NULL)
+		return (1);
 	while (temp->next != NULL && temp->value < temp->next->value)
 	{
 		temp = temp->next;

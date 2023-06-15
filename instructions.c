@@ -29,6 +29,7 @@ void    sa(t_stacks **stack_a)
         {
             ft_swap(&temp->value, &temp->next->value);
         }
+        ft_printf("sa\n");
     }
     else
         return ;
@@ -50,6 +51,7 @@ void    sb(t_stacks **stack_b)
         {
             ft_swap(&temp->value, &temp->next->value);
         }
+        ft_printf("sb\n");
     }
     else
         return ;
@@ -60,6 +62,7 @@ void    ss(t_stacks **stack_a, t_stacks **stack_b)
 {
     sa(stack_a);
     sb(stack_b);
+    ft_printf("ss\n");
 }
 
 //pa (push a) : Prend le premier élément au sommet de b et le met sur a.
@@ -79,7 +82,7 @@ void    pa(t_stacks **stack_a, t_stacks **stack_b)
             (*stack_a)->next = NULL;
         else
             (*stack_a)->next = tempa;
-            
+        ft_printf("pa\n");
     }
     else
         return ;
@@ -101,7 +104,7 @@ void    pb(t_stacks **stack_a, t_stacks **stack_b)
             (*stack_b)->next = NULL;
         else
             (*stack_b)->next = tempb;
-            
+        ft_printf("pb\n");
     }
     else
         return ;
@@ -127,6 +130,7 @@ void    ra(t_stacks **stack_a)
         temp->next = temp2;
         *stack_a = temp2->next;
         temp2->next = NULL;
+        ft_printf("ra\n");
     }
     else
         return ;
@@ -152,6 +156,7 @@ void    rb(t_stacks **stack_b)
         temp->next = temp2;
         *stack_b = temp2->next;
         temp2->next = NULL;
+        ft_printf("rb\n");
     }
     else
         return ;
@@ -162,6 +167,7 @@ void    rr(t_stacks **stack_a, t_stacks **stack_b)
 {
     ra(stack_a);
     rb(stack_b);
+    ft_printf("rr\n");
 }
 
 //rra (reverse rotate a) : Décale d’une position vers le bas tous les élements de
@@ -184,6 +190,7 @@ void    rra(t_stacks **stack_a)
 		*stack_a = tempa->next;
 		(*stack_a)->next = temp2;
 		tempa->next = NULL;
+        ft_printf("rra\n");
     }
     else
         return ;
@@ -209,6 +216,7 @@ void    rrb(t_stacks **stack_b)
 		*stack_b = tempb->next;
 		(*stack_b)->next = temp2;
 		tempb->next = NULL;
+        ft_printf("rrb\n");
     }
     else
         return ;
@@ -219,4 +227,5 @@ void	rrr(t_stacks **stack_a, t_stacks **stack_b)
 {
 	rra(stack_a);
 	rrb(stack_b);
+    ft_printf("rrr\n");
 }

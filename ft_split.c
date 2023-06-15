@@ -5,19 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 17:34:05 by mgeisler          #+#    #+#             */
-/*   Updated: 2023/05/02 17:34:05 by mgeisler         ###   ########.fr       */
+/*   Created: 2022/12/05 15:31:58 by mgeisler          #+#    #+#             */
+/*   Updated: 2022/12/15 18:01:42 by mgeisler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include "push_swap.h"
 
-int	count(char *s, char c)
+size_t	count(char const *s, char c)
 {
-	int	i;
-	int	words;
+	size_t	i;
+	size_t	words;
 
 	i = 0;
 	words = 0;
@@ -30,9 +28,9 @@ int	count(char *s, char c)
 	return (words);
 }
 
-int	lenword(char *s, int i, char c)
+size_t	lenword(const char *s, size_t i, char c)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	while (s[i] == c)
@@ -45,10 +43,10 @@ int	lenword(char *s, int i, char c)
 	return (len);
 }
 
-char	*cpyword(char *s, int *i, char c, int len)
+char	*cpyword(const char *s, size_t *i, char c, size_t len)
 {
 	char	*str;
-	int	u;
+	size_t	u;
 
 	u = 0;
 	while (s[*i] == c)
@@ -58,12 +56,6 @@ char	*cpyword(char *s, int *i, char c, int len)
 		return (NULL);
 	while (len)
 	{
-        if(s[*i] == ' ')
-        {
-            i++;
-            str[u] = '\0';
-            return (str);
-        }
 		str[u++] = s[(*i)++];
 		len--;
 	}
@@ -73,7 +65,7 @@ char	*cpyword(char *s, int *i, char c, int len)
 
 char	**freeall(char **tab)
 {
-	int	j;
+	size_t	j;
 
 	j = 0;
 	while (tab[j])
@@ -85,10 +77,10 @@ char	**freeall(char **tab)
 	return (NULL);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(const char *s, char c)
 {
-	int		i;
-	int		j;
+	size_t		i;
+	size_t		j;
 	char		**tab;
 
 	i = 0;
@@ -98,7 +90,7 @@ char	**ft_split(char *s, char c)
 	tab = malloc(sizeof(char *) * (count(s, c) + 1));
 	if (!tab)
 		return (0);
-	if (j < count(s, c))
+	while (j < count(s, c))
 	{
 		tab[j++] = cpyword(s, &i, c, lenword(s, i, c));
 		if (!tab[j - 1])
@@ -107,31 +99,3 @@ char	**ft_split(char *s, char c)
 	tab[j] = 0;
 	return (tab);
 }
-
-/*
-int main(int argc, char **argv)
-{
-    char *str;
-    char **s;
-    int i;
-    int u;
-	int j;
-
-    i = 0;
-    u = 1;
-	j = 0;
-    while (u < argc)
-    {
-        str = strdup(argv[u]);
-        s[j] = *ft_split(str, '"');
-        u++;
-		j++;
-    }
-    while(i < argc)
-    {
-        printf("%s\n", s);
-        i++;
-    }
-    return (0);
-}
-*/

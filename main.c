@@ -19,6 +19,8 @@ int main(int argc, char **argv)
 	int i;
 
 	i = 0;
+stack_a = NULL;
+
 //parser
     if (parser(argv, argc, &stack_a) == NULL)
 		return(write(1, "Error\n", 6));
