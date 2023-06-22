@@ -6,7 +6,7 @@
 /*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:31:58 by mgeisler          #+#    #+#             */
-/*   Updated: 2023/06/21 16:32:02 by mgeisler         ###   ########.fr       */
+/*   Updated: 2023/06/22 19:25:35 by mgeisler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ char	*cpyword(const char *s, size_t *i, char c, size_t len)
 	return (str);
 }
 
-char	**freeall(char **tab)
+char	**freeall(char **tab, size_t index)
 {
 	size_t	j;
 
 	j = 0;
-	while (tab[j])
+	while (j <= index)
 	{
 		free(tab[j]);
 		j++;
@@ -94,7 +94,7 @@ char	**ft_split(const char *s, char c)
 	{
 		tab[j++] = cpyword(s, &i, c, lenword(s, i, c));
 		if (!tab[j - 1])
-			return (freeall(tab));
+			return (freeall(tab, j));
 	}
 	tab[j] = 0;
 	return (tab);

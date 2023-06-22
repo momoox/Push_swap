@@ -35,13 +35,13 @@ int			main(int argc, char **argv);
 
 //parser
 t_stacks	*parser(char **argv, int argc, t_stacks **stack_a);
-char		**check_argv(char **argv, int argc, int *a_error, int *i2);
+char		**check_argv(char **argv, int *a_error, int *i2, int *free_argv);
 
 //parser_utils_1
 int			isanum(char **argv, int *a_error);
 t_stacks	*doublenum(t_stacks **stack_a);
 t_stacks	*errorexit(t_stacks **stack_a);
-int			ft_strchr(char **argv);
+int			ft_strchr(char **argv, int *free_argv);
 int			ft_atoi(char *str, int *a_error);
 
 //utils
@@ -49,7 +49,7 @@ void		ft_swap(int *a, int *b);
 int			ft_strlen(char *str);
 int			stacksorted(t_stacks **stack_a);
 int			stack_len(t_stacks **stack_a);
-void		free_all(t_stacks **stack_a, t_stacks **stack_b);
+void		free_all(t_stacks **stack_a, t_stacks **stack_b, char **argv);
 
 //utils_2
 int			zero_checker(char *str);

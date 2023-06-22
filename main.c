@@ -25,6 +25,6 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	get_rank(&stack_a);
 	find_algo(&stack_a, &stack_b, i);
-	free_all(&stack_a, &stack_b);
+	free_all(&stack_a, &stack_b, NULL);
 	return (0);
 }

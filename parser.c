@@ -19,10 +19,14 @@ t_stacks	*parser(char **argv, int argc, t_stacks **stack_a)
 {
 	int	i;
 	int	a_error;
+	int	free_argv;
 
+	free_argv = 0;
 	i = 1;
 	a_error = 0;
-	argv = check_argv(argv, argc, &a_error, &i);
+	if (argc == 1)
+		return (0);
+	argv = check_argv(argv, &a_error, &i, &free_argv);
 	if (a_error == 1)
 		return (NULL);
 	while (argv[i])
@@ -31,6 +35,8 @@ t_stacks	*parser(char **argv, int argc, t_stacks **stack_a)
 		if (a_error == 1)
 			return (errorexit(stack_a));
 	}
+	if (free_argv == 1)
+		free_all(NULL, NULL, argv);
 	if (doublenum(stack_a) == NULL)
 		return (errorexit(stack_a));
 	if (stacksorted(stack_a) == 1)
@@ -38,17 +44,13 @@ t_stacks	*parser(char **argv, int argc, t_stacks **stack_a)
 	return (*stack_a);
 }
 
-char	**check_argv(char **argv, int argc, int *a_error, int *i2)
+char	**check_argv(char **argv, int *a_error, int *i2, int *free_argv)
 {
-	if (argc == 1)
-		return (0);
-	if (ft_strchr(argv) == 1 && argc == 2)
+	if (ft_strchr(argv, free_argv) == 1)
 	{
 		argv = ft_split(argv[1], ' ');
 		*i2 = 0;
 	}
-	// if (atoi_checker(*argv, a_error) == 1)
-	// 	return (NULL);
 	isanum(argv, a_error);
 	if (*a_error == 1)
 		return (NULL);

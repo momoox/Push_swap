@@ -64,20 +64,28 @@ int	stacksorted(t_stacks **stack_a)
 	return (0);
 }
 
-void	free_all(t_stacks **stack_a, t_stacks **stack_b)
+void	free_all(t_stacks **stack_a, t_stacks **stack_b, char **argv)
 {
 	t_stacks	*tempo;
+	int			i;
 
-	while (*stack_a)
+	i = -1;
+	while (stack_a && *stack_a)
 	{
 		tempo = (*stack_a)->next;
 		free(*stack_a);
 		*stack_a = tempo;
 	}
-	while (*stack_b)
+	while (stack_b && *stack_b)
 	{
 		tempo = (*stack_b)->next;
 		free(*stack_b);
 		*stack_b = tempo;
+	}
+	if (argv)
+	{
+		while (argv[++i])
+			free(argv[i]);
+		free(argv);
 	}
 }

@@ -80,7 +80,7 @@ int	isanum(char **argv, int *a_error)
 	return (0);
 }
 
-int	ft_strchr(char **argv)
+int	ft_strchr(char **argv, int *free_argv)
 {
 	int	i;
 	int	j;
@@ -92,7 +92,7 @@ int	ft_strchr(char **argv)
 		while (argv[i][j])
 		{
 			if (argv[i][j] == (char) ' ')
-				return (1);
+				return (*free_argv = 1);
 			j++;
 		}
 		i++;
