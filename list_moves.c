@@ -6,7 +6,7 @@
 /*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 17:34:15 by mgeisler          #+#    #+#             */
-/*   Updated: 2023/06/07 18:46:06 by mgeisler         ###   ########.fr       */
+/*   Updated: 2023/06/20 23:09:01 by mgeisler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 t_stacks	*ft_lstnew(int content)
 {
-	t_stacks *new;
+	t_stacks	*new;
 
 	new = (t_stacks *)ft_calloc(sizeof(t_stacks), 1);
 	if (!new)
 		return (NULL);
 	new->value = content;
 	new->rank = 0;
-	return(new);
+	return (new);
 }
 
 void	lstadd_front(t_stacks **first, t_stacks *new)
@@ -37,7 +37,7 @@ void	lstadd_front(t_stacks **first, t_stacks *new)
 
 void	lstadd_back(t_stacks **first, t_stacks *new)
 {
-	t_stacks *tmp;
+	t_stacks	*tmp;
 
 	if (*first == NULL)
 		*first = new;

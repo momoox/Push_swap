@@ -5,63 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 17:33:35 by mgeisler          #+#    #+#             */
-/*   Updated: 2023/05/02 17:33:35 by mgeisler         ###   ########.fr       */
+/*   Created: 2023/06/21 16:03:32 by mgeisler          #+#    #+#             */
+/*   Updated: 2023/06/21 17:03:08 by mgeisler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(int *a, int *b)
-{
-	int	c;
-
-	c = *a;
-	*a = *b;
-	*b = c;
-}
-
-// char : return(NULL);
-// int : return(0);
-// void : return ;
-
-int	stack_len(t_stacks *s)
-{
-	int	len;
-
-	len = 0;
-	if (s == NULL)
-		return (len);
-	while (s != NULL)
-	{
-		len++;
-		s = s->next;
-	}
-	return (len);
-}
-
-int	ft_strlen(char *str)
+int	zero_checker(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] && !(str[i] >= '0' && str[i] <= '9'))
 		i++;
-	return (i);
-}
-
-int	stacksorted(t_stacks **stack_a)
-{
-	t_stacks	*temp;
-
-	temp = *stack_a;
-	if (temp->next == NULL)
-		return (1);
-	while (temp->next != NULL && temp->value < temp->next->value)
+	while (str[i] == '0')
 	{
-		temp = temp->next;
-		if (temp->next == NULL)
+		if (str[i] && (str[i + 1] >= '0' && str[i + 1] <= '9'))
 			return (1);
+		i++;
 	}
 	return (0);
 }

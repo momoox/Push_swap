@@ -35,7 +35,7 @@ int			main(int argc, char **argv);
 
 //parser
 t_stacks	*parser(char **argv, int argc, t_stacks **stack_a);
-char		**check_argv(char **argv, int argc, int *a_error, int *);
+char		**check_argv(char **argv, int argc, int *a_error, int *i2);
 
 //parser_utils_1
 int			isanum(char **argv, int *a_error);
@@ -44,15 +44,15 @@ t_stacks	*errorexit(t_stacks **stack_a);
 int			ft_strchr(char **argv);
 int			ft_atoi(char *str, int *a_error);
 
-//utils_2
+//utils
 void		ft_swap(int *a, int *b);
 int			ft_strlen(char *str);
 int			stacksorted(t_stacks **stack_a);
-int			stack_len(t_stacks *stack_a);
+int			stack_len(t_stacks **stack_a);
+void		free_all(t_stacks **stack_a, t_stacks **stack_b);
 
-//print_stacks
-void		print_list_a(t_stacks **stack_a);
-void		print_list_b(t_stacks **stack_b);
+//utils_2
+int			zero_checker(char *str);
 
 //list_moves
 t_stacks	*ft_lstnew(int content);
@@ -78,6 +78,12 @@ void		rrr(t_stacks **stack_a, t_stacks **stack_b);
 //init_sort
 t_stacks	*find_last(t_stacks **stack_a);
 void		get_rank(t_stacks **stack_a);
+void		find_small(t_stacks **stack_a);
+
+//sort
+void		find_algo(t_stacks **stack_a, t_stacks **stack_b, int i);
 void		radix_sort(t_stacks **stack_a, t_stacks **stack_, int i);
+void		sort_three(t_stacks **stack_a);
+void		sort_five(t_stacks **stack_a, t_stacks **stack_b);
 
 #endif

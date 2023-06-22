@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-char	ft_putchar_fd(char c, int fd, int *error, int *ptr);
+void	ft_putchar_fd(char c, int fd, int *error, int *ptr);
 int		ft_printf(const char *str, ...);
 int		ft_putnbr_fd_x(unsigned int n, int fd, int *error, int *ptr);
 int		ft_putnbr_fd_u(unsigned int n, int fd, int *error, int *ptr);

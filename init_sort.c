@@ -6,7 +6,7 @@
 /*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:25:23 by mgeisler          #+#    #+#             */
-/*   Updated: 2023/06/11 18:46:10 by mgeisler         ###   ########.fr       */
+/*   Updated: 2023/06/20 22:57:44 by mgeisler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	get_rank(t_stacks **stack_a)
 {
 	t_stacks	*tsnext;
 	t_stacks	*tempo;
-	
+
 	tempo = *stack_a;
 	while (tempo)
 	{
@@ -48,27 +48,30 @@ t_stacks	*find_last(t_stacks **stack_a)
 	return (last);
 }
 
-void	radix_sort(t_stacks **stack_a, t_stacks **stack_b, int i)
+void	find_small(t_stacks **stack_a)
 {
 	t_stacks	*tempo;
-	t_stacks	*onepiece;
-	t_stacks	*last;
+	int			small;
+	int			index;
+	int			i;
 
-	onepiece = *stack_a;
-	last = find_last(stack_a);
-	while(onepiece)
+	index = 0;
+	i = -1;
+	small = (*stack_a)->value;
+	tempo = *stack_a;
+	while (tempo && ++i < stack_len(stack_a))
 	{
-		tempo = onepiece;
-		onepiece = onepiece->next;
-
-		if (tempo->rank >> i & 1)
-			ra(stack_a);
-		else
-
-			pb(stack_a, stack_b);
-		if (tempo == last)
-			break ;
+		if (small > tempo->value)
+		{
+			small = tempo->value;
+			index = i;
+		}
+		tempo = tempo->next;
 	}
-	while (*stack_b)
-		pa(stack_a, stack_b);
+	if (index >= stack_len(stack_a) / 2)
+		while (index++ != stack_len(stack_a))
+			rra(stack_a);
+	else
+		while (index-- != 0)
+			ra(stack_a);
 }

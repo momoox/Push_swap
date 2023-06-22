@@ -20,7 +20,7 @@ int	ft_printf_cond(va_list args, const char *str, int *error, int i)
 	count = 0;
 	ptr = &count;
 	if (str[i] == 'c')
-		ft_putchar_fd((char)va_arg(args, char *), 1, error, ptr);
+		ft_putchar_fd(va_arg(args, int), 1, error, ptr);
 	if (str[i] == 's')
 		ft_putstr_fd(va_arg(args, char *), error, ptr);
 	if (str[i] == 'd' || str[i] == 'i')

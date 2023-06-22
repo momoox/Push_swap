@@ -6,13 +6,13 @@
 /*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 22:25:14 by mgeisler          #+#    #+#             */
-/*   Updated: 2023/01/12 22:24:52 by mgeisler         ###   ########.fr       */
+/*   Updated: 2023/06/20 23:13:16 by mgeisler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	ft_putchar_fd(char c, int fd, int *error, int *ptr)
+void	ft_putchar_fd(char c, int fd, int *error, int *ptr)
 {
 	int	a;
 
@@ -24,5 +24,4 @@ char	ft_putchar_fd(char c, int fd, int *error, int *ptr)
 	}
 	if (a == -1)
 		*error = -1;
-	return (0);
 }
