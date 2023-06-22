@@ -53,6 +53,7 @@ void		free_all(t_stacks **stack_a, t_stacks **stack_b, char **argv);
 
 //utils_2
 int			zero_checker(char *str);
+// void		free_new(t_stacks *new);
 
 //list_moves
 t_stacks	*ft_lstnew(int content);

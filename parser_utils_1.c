@@ -110,8 +110,7 @@ int	ft_atoi(char *str, int *a_error)
 	i = 0;
 	n = 1;
 	nb = 0;
-
-	if (zero_checker(str) == 1)
+	if (zero_checker(str) == 1 || str[0] == '\0')
 		*a_error = 1;
 	if (str[i] == '-' || str[i] == '+')
 	{
