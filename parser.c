@@ -45,7 +45,7 @@ t_stacks	*parser(char **argv, int argc, t_stacks **stack_a)
 
 char	**check_argv(char **argv, int *a_error, int *i2, int *free_argv)
 {
-	if (ft_strchr(argv, free_argv) == 1)
+	if (ft_strchr(argv, free_argv) == 1 && !argv[2])
 	{
 		argv = ft_split(argv[1], ' ');
 		*i2 = 0;
