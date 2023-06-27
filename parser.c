@@ -2,14 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2023/06/07 17:54:39 by mgeisler          #+#    #+#             */
-/*   Updated: 2023/06/07 17:54:39 by mgeisler         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgeisler <mgeisler@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/27 19:44:11 by mgeisler          #+#    #+#             */
+/*   Updated: 2023/06/27 19:44:11 by mgeisler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +21,7 @@ t_stacks	*parser(char **argv, int argc, t_stacks **stack_a)
 	i = 1;
 	a_error = 0;
 	if (argc == 1)
-		return (0);
+		exit(1);
 	argv = check_argv(argv, &a_error, &i, &free_argv);
 	if (a_error == 1)
 		return (NULL);
